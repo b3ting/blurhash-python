@@ -1,0 +1,32 @@
+swagger: "2.0"
+info:
+  description: "BlurHash generates a compact representation of a placeholder for an image."
+  version: "1.0.0"
+  title: "Blurhash API"
+host: "blur.b3ting.endpoint.ainize.ai"
+basePath: "/"
+schemes:
+- "https"
+paths:
+  /process:
+    post:
+      summary: "Generate blurhash representation"
+      description: ""
+      consumes:
+         - multipart/form-data
+      parameters:
+      - in: "formData"
+        type: "file"
+        name: "file"
+        required: true
+      - in: "formData"
+        type: "string"
+        name: "width"
+        description: "default: 128"
+      - in: "formData"
+        type: "string"
+        name: "height"
+        description: "default: 128"
+      responses:
+        200:
+          description: "PNG Blurhashed image!"
